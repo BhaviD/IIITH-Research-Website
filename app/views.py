@@ -13,9 +13,12 @@ from functools import wraps
 from datetime import datetime
 from sqlalchemy_utils import EmailType
 from operator import attrgetter
+import os
 
+basedir = os.path.abspath(os.path.dirname(__file__))
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://///home/bhavidhingra/google-drive-iiith/Semester_#1/CSE505 : Scripting & Computer Environments/Projects/IIITH-Research-Website/database/iiith_research.db'
+# Configs
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, '../database/iiith_research.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
